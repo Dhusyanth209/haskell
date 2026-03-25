@@ -81,7 +81,8 @@ export function generatePDF(report, presetName) {
         }
     });
 
-    let y = doc.lastAutoTable.finalY + 15;
+    const tableRef = doc.lastAutoTable || doc.previousAutoTable || (doc.autoTable && doc.autoTable.previous) || { finalY: 150 };
+    let y = tableRef.finalY + 15;
 
     // Cascade Chain
     if (report.cascadeChain.length > 0) {

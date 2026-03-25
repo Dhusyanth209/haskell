@@ -377,10 +377,7 @@ app.post('/multi-extinction', (req, res) => {
   const surviving = current.speciesList.filter(s => s.population > 0.1).length;
   res.json({ removedSpecies, phaseResults, timeline, finalStability, totalBiomassLoss, surviving, totalSpecies: ecosystem.speciesList.length });
 });
-// Catch-all route for React SPA
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
-});
+
 
 if(process.env.NODE_ENV !== 'production'){ app.listen(port, () => console.log('Listening')); }
 module.exports = app;

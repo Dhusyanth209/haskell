@@ -3,11 +3,11 @@
     "version": "1.0.0",
     "description": "Scientific Ecosystem Simulator Unified Project",
     "scripts": {
-        "install:all": "npm install && cd backend-js && npm install && cd ../frontend && npm install",
-        "dev": "concurrently \"cd backend-js && node server.js\" \"cd frontend && npm run dev\"",
+        "install:all": "npm install && cd frontend && npm install",
+        "dev": "concurrently \"node api/server.js\" \"cd frontend && npm run dev\"",
         "dev:haskell": "concurrently \"cd backend && stack run\" \"cd frontend && npm run dev\"",
         "build": "npm run install:all && cd frontend && npm run build",
-        "start": "cd backend-js && node server.js"
+        "start": "node api/server.js"
     },
     "devDependencies": {
         "concurrently": "^9.1.2"
