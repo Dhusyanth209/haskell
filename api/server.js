@@ -382,4 +382,5 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
 
-app.listen(port, () => { console.log('Backend listening at http://localhost:' + port); });
+if(process.env.NODE_ENV !== 'production'){ app.listen(port, () => console.log('Listening')); }
+module.exports = app;

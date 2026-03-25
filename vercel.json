@@ -1,0 +1,13 @@
+{
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
+  "rewrites": [
+    { "source": "/simulate", "destination": "/api/server.js" },
+    { "source": "/extinction", "destination": "/api/server.js" },
+    { "source": "/recovery", "destination": "/api/server.js" },
+    { "source": "/sensitivity", "destination": "/api/server.js" },
+    { "source": "/risk-scores", "destination": "/api/server.js" },
+    { "source": "/multi-extinction", "destination": "/api/server.js" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
