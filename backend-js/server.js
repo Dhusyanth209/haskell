@@ -1,4 +1,4 @@
-﻿const express = require('express');
+const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = 3000;
@@ -374,6 +374,10 @@ app.post('/multi-extinction', (req, res) => {
   const totalBiomassLoss = parseFloat(((originalBiomass - finalBiomass) / originalBiomass * 100).toFixed(1));
   const surviving = current.speciesList.filter(s => s.population > 0.1).length;
   res.json({ removedSpecies, phaseResults, timeline, finalStability, totalBiomassLoss, surviving, totalSpecies: ecosystem.speciesList.length });
+});
+// Catch-all route for React SPA
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
 
 app.listen(port, () => { console.log('Backend listening at http://localhost:' + port); });

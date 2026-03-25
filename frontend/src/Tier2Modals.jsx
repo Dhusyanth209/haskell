@@ -16,7 +16,7 @@ export function RecoveryModal({ ecosystem, accent, onClose }) {
         if (!selectedSpecies) return;
         setLoading(true);
         try {
-            const r = await fetch("http://localhost:3000/recovery", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ecosystem, removedSpecies: selectedSpecies, reintroducePop }) });
+            const r = await fetch("/recovery", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ecosystem, removedSpecies: selectedSpecies, reintroducePop }) });
             setReport(await r.json());
         } catch (e) { console.error(e); }
         finally { setLoading(false); }
@@ -102,7 +102,7 @@ export function SensitivityModal({ ecosystem, accent, onClose }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:3000/sensitivity", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ecosystem }) })
+        fetch("/sensitivity", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ecosystem }) })
             .then(r => r.json()).then(d => { setData(d); setLoading(false); });
     }, []);
 
@@ -173,7 +173,7 @@ export function RiskScoresModal({ ecosystem, accent, onClose }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:3000/risk-scores", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ecosystem }) })
+        fetch("/risk-scores", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ecosystem }) })
             .then(r => r.json()).then(d => { setData(d); setLoading(false); });
     }, []);
 
@@ -241,7 +241,7 @@ export function MultiCascadeModal({ ecosystem, accent, onClose }) {
         if (selected.length < 2) return;
         setLoading(true);
         try {
-            const r = await fetch("http://localhost:3000/multi-extinction", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ecosystem, removedSpecies: selected }) });
+            const r = await fetch("/multi-extinction", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ecosystem, removedSpecies: selected }) });
             setReport(await r.json());
         } catch (e) { console.error(e); }
         finally { setLoading(false); }

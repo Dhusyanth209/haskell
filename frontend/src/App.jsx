@@ -209,7 +209,7 @@ export default function App() {
   const runSim = async () => {
     setLoading(true);
     try {
-      const r = await fetch("http://localhost:3000/simulate", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(ecosystem) });
+      const r = await fetch("/simulate", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(ecosystem) });
       const d = await r.json();
       setEcosystem(d.result); setStability(d.stability); setKeystone(d.keystone);
       const entry = { t: `T${timeStep}`, ...d.result.speciesList.reduce((a, s) => ({ ...a, [s.name]: parseFloat(s.population.toFixed(1)) }), {}) };
@@ -223,7 +223,7 @@ export default function App() {
     setLoading(true);
     try {
       const orig = customLabel ? JSON.parse(JSON.stringify(ecosystem)) : JSON.parse(JSON.stringify(PRESETS[presetName]));
-      const r = await fetch("http://localhost:3000/extinction", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ecosystem: orig, removedSpecies: name }) });
+      const r = await fetch("/extinction", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ecosystem: orig, removedSpecies: name }) });
       const rep = await r.json();
       setImpactReport(rep); setEcosystem(rep.result); setStability(rep.stabilityAfter);
     } catch (e) { console.error(e); } finally { setLoading(false); }
