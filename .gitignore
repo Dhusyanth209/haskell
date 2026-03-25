@@ -1,0 +1,8 @@
+node_modules/
+.stack-work/
+dist/
+dist-newstyle/
+*.o
+*.hi
+.env
+.DS_Store

@@ -1,0 +1,13 @@
+{
+    "name": "ecosystem-simulator-root",
+    "version": "1.0.0",
+    "description": "Scientific Ecosystem Simulator Unified Project",
+    "scripts": {
+        "install:all": "npm install && cd backend-js && npm install && cd ../frontend && npm install",
+        "dev": "concurrently \"cd backend-js && node server.js\" \"cd frontend && npm run dev\"",
+        "dev:haskell": "concurrently \"cd backend && stack run\" \"cd frontend && npm run dev\""
+    },
+    "devDependencies": {
+        "concurrently": "^9.1.2"
+    }
+}
