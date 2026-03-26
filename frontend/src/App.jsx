@@ -289,7 +289,7 @@ export default function App() {
 
       <main className="relative z-10 flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden">
         {/* LEFT */}
-        <aside className="w-full lg:w-72 max-h-64 lg:max-h-none backdrop-blur-xl bg-black/50 border-b lg:border-b-0 lg:border-r border-white/5 flex flex-col shrink-0">
+        <aside className="w-full lg:w-72 max-h-[45vh] lg:max-h-none backdrop-blur-xl bg-black/50 border-b lg:border-b-0 lg:border-r border-white/5 flex flex-col shrink-0">
           <div className="p-3 border-b border-white/5"><h3 className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-500 mb-2">Biome</h3><div className="space-y-1.5">{Object.keys(PRESETS).map(name => (
             <button key={name} onClick={() => loadPreset(name)} className={`w-full text-left text-xs px-3 py-2 rounded-lg border transition-all flex items-center gap-2 ${presetName === name && !customLabel ? 'border-white/20 bg-white/10 text-white font-bold' : 'border-white/5 text-slate-400 hover:bg-white/5'}`}><span className="text-base">{name === "Serengeti Savanna" ? "🦁" : name === "Arctic Tundra" ? "🐺" : "🦈"}</span>{name}</button>
           ))}</div></div>
@@ -300,11 +300,15 @@ export default function App() {
               <div className="w-full bg-black/40 h-1.5 rounded-full overflow-hidden"><div className="h-full rounded-full transition-all duration-700" style={{ width: `${Math.min(100, (s.population / 150) * 100)}%`, backgroundColor: COLORS[i % COLORS.length] }} /></div>
             </div>
           ))}</div>
-          {selectedSpecies && <div className="p-3 border-t border-white/5"><button onClick={() => execExtinction(selectedSpecies)} disabled={loading} className="w-full py-2.5 rounded-lg bg-red-600 hover:bg-red-500 text-white text-xs font-black uppercase tracking-wider transition-all disabled:opacity-50 flex items-center justify-center gap-2">☠️ Extinction: {selectedSpecies}</button></div>}
+          <div className="p-3 border-t border-white/5">
+            <button onClick={() => selectedSpecies && execExtinction(selectedSpecies)} disabled={loading || !selectedSpecies} className="w-full py-2.5 rounded-lg bg-red-600 hover:bg-red-500 text-white text-xs font-black uppercase tracking-wider transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+              ☠️ {selectedSpecies ? `Extinction: ${selectedSpecies}` : "Select Species"}
+            </button>
+          </div>
         </aside>
 
         {/* CENTER */}
-        <section className="flex-none min-h-[450px] lg:flex-1 flex flex-col lg:overflow-hidden shrink-0">
+        <section className="flex-none min-h-[60vh] lg:min-h-0 lg:flex-1 flex flex-col lg:overflow-hidden shrink-0">
           <div className="flex-1 relative overflow-hidden">
             <div className="absolute top-3 left-3 z-10 backdrop-blur-xl bg-black/50 px-3 py-1.5 rounded-full border border-white/10"><span className="text-[9px] font-black uppercase tracking-[0.15em] text-slate-400">🔗 Trophic Network</span></div>
             <div className="absolute top-3 right-3 z-10 flex gap-1.5">
@@ -323,7 +327,7 @@ export default function App() {
         </section>
 
         {/* RIGHT */}
-        <aside className="w-full lg:w-64 max-h-72 lg:max-h-none backdrop-blur-xl bg-black/50 border-t lg:border-t-0 lg:border-l border-white/5 flex flex-col shrink-0">
+        <aside className="w-full lg:w-64 max-h-[45vh] lg:max-h-none backdrop-blur-xl bg-black/50 border-t lg:border-t-0 lg:border-l border-white/5 flex flex-col shrink-0">
           <div className="p-4 border-b border-white/5"><h3 className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-500 mb-3">Stability</h3><StabilityGauge value={stability} accent={accentColor} /></div>
           <div className="flex-1 p-4 space-y-3 overflow-y-auto">
             <div className="rounded-lg border bg-white/5 p-3" style={{ borderColor: accentColor + '33' }}><span className="block text-[8px] font-black text-slate-500 uppercase tracking-widest mb-1">🏆 Keystone</span><span className="text-white font-mono text-lg font-black">{keystone || "—"}</span></div>
