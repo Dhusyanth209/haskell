@@ -1,0 +1,106 @@
+[
+    {
+        "id": "yellowstone",
+        "title": "Yellowstone Wolf Reintroduction",
+        "icon": "🐺",
+        "year": "1995",
+        "location": "Yellowstone National Park, USA",
+        "summary": "After 70 years of wolf absence, elk overpopulated and overgrazed riverbanks. Wolf reintroduction in 1995 triggered a trophic cascade that literally changed the course of rivers.",
+        "ecosystem": {
+            "speciesList": [
+                { "name": "Willow", "population": 30, "icon": "🌳" },
+                { "name": "Elk", "population": 90, "icon": "🦌" },
+                { "name": "Beaver", "population": 5, "icon": "🦫" },
+                { "name": "Wolf", "population": 0, "icon": "🐺" },
+                { "name": "Coyote", "population": 40, "icon": "🦊" }
+            ],
+            "interactions": [
+                { "predator": "Elk", "prey": "Willow", "rate": 0.04 },
+                { "predator": "Wolf", "prey": "Elk", "rate": 0.03 },
+                { "predator": "Wolf", "prey": "Coyote", "rate": 0.02 },
+                { "predator": "Beaver", "prey": "Willow", "rate": 0.01 }
+            ]
+        },
+        "keyFinding": "Wolf reintroduction reduced elk population by 50%, allowing willows to regrow, beavers to return, and rivers to stabilize.",
+        "removedSpecies": "Wolf",
+        "lesson": "Apex predators control entire ecosystems from the top down."
+    },
+    {
+        "id": "canetoad",
+        "title": "Australian Cane Toad Invasion",
+        "icon": "🐸",
+        "year": "1935",
+        "location": "Queensland, Australia",
+        "summary": "102 cane toads were introduced to control cane beetles. By 2025, over 200 million toads have spread across Australia, poisoning native predators who try to eat them.",
+        "ecosystem": {
+            "speciesList": [
+                { "name": "Sugarcane", "population": 100, "icon": "🌿" },
+                { "name": "Cane Beetle", "population": 60, "icon": "🪲" },
+                { "name": "Cane Toad", "population": 80, "icon": "🐸" },
+                { "name": "Quoll", "population": 15, "icon": "🐾" },
+                { "name": "Goanna", "population": 20, "icon": "🦎" }
+            ],
+            "interactions": [
+                { "predator": "Cane Beetle", "prey": "Sugarcane", "rate": 0.02 },
+                { "predator": "Cane Toad", "prey": "Cane Beetle", "rate": 0.01 },
+                { "predator": "Quoll", "prey": "Cane Toad", "rate": 0.03 },
+                { "predator": "Goanna", "prey": "Cane Toad", "rate": 0.025 }
+            ]
+        },
+        "keyFinding": "Quoll populations dropped 90% and goanna populations dropped 70% due to toad toxicity. The beetles they were meant to control barely declined.",
+        "removedSpecies": "Quoll",
+        "lesson": "Introducing invasive species can devastate native predator populations."
+    },
+    {
+        "id": "coral",
+        "title": "Great Barrier Reef Bleaching",
+        "icon": "🪸",
+        "year": "2016-2020",
+        "location": "Great Barrier Reef, Australia",
+        "summary": "Rising ocean temperatures caused mass coral bleaching, destroying the foundation species that 25% of all marine life depends on.",
+        "ecosystem": {
+            "speciesList": [
+                { "name": "Coral", "population": 100, "icon": "🪸" },
+                { "name": "Zooplankton", "population": 70, "icon": "🦠" },
+                { "name": "Clownfish", "population": 40, "icon": "🐠" },
+                { "name": "Grouper", "population": 15, "icon": "🐟" },
+                { "name": "Reef Shark", "population": 5, "icon": "🦈" }
+            ],
+            "interactions": [
+                { "predator": "Zooplankton", "prey": "Coral", "rate": 0.01 },
+                { "predator": "Clownfish", "prey": "Zooplankton", "rate": 0.025 },
+                { "predator": "Grouper", "prey": "Clownfish", "rate": 0.03 },
+                { "predator": "Reef Shark", "prey": "Grouper", "rate": 0.02 }
+            ]
+        },
+        "keyFinding": "50% coral loss led to 60% fish population decline. Entire reef ecosystems collapsed within 2 years.",
+        "removedSpecies": "Coral",
+        "lesson": "Foundation species (producers) are the most critical — their loss causes total ecosystem collapse."
+    },
+    {
+        "id": "sea-otter",
+        "title": "Sea Otter Kelp Forest Recovery",
+        "icon": "🦦",
+        "year": "1970s-present",
+        "location": "Pacific Coast, North America",
+        "summary": "When sea otters were hunted to near extinction, sea urchin populations exploded and devoured kelp forests. Otter protection allowed kelp forests to recover.",
+        "ecosystem": {
+            "speciesList": [
+                { "name": "Kelp", "population": 120, "icon": "🌿" },
+                { "name": "Sea Urchin", "population": 80, "icon": "🦔" },
+                { "name": "Sea Otter", "population": 5, "icon": "🦦" },
+                { "name": "Fish", "population": 40, "icon": "🐟" },
+                { "name": "Orca", "population": 3, "icon": "🐋" }
+            ],
+            "interactions": [
+                { "predator": "Sea Urchin", "prey": "Kelp", "rate": 0.03 },
+                { "predator": "Sea Otter", "prey": "Sea Urchin", "rate": 0.04 },
+                { "predator": "Fish", "prey": "Kelp", "rate": 0.01 },
+                { "predator": "Orca", "prey": "Sea Otter", "rate": 0.02 }
+            ]
+        },
+        "keyFinding": "Otter removal → urchin explosion → 90% kelp loss. Otter protection → urchin control → kelp forests restored.",
+        "removedSpecies": "Sea Otter",
+        "lesson": "Keystone predators maintain ecosystem balance by controlling herbivore populations."
+    }
+]
